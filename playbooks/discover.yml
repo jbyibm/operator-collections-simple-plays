@@ -1,0 +1,49 @@
+---
+- name: Discover existing file instances
+  hosts: some-host
+  gather_facts: false
+
+  vars:
+    k8s_namespace: "{{ ansible_operator_meta.namespace | default('default') }}"
+
+  # FIXME causes error described in NAZARE-7491
+  # Current workaround - uncomment this block only for local execution OR set defaults in vars/operator-provided.yml
+  # vars_prompt:
+  #   - name: k8s_namespace
+  #     prompt: "What namespace would you like the discovered File instances to be created in?"
+  #     private: no
+  
+  vars_files:
+    - vars/defaults.yml
+    - vars/operator-provided.yml
+  
+  tasks:
+  - name: "Find Files in /tmp/zoscb/simple-plays"
+    find:
+      paths: "{{ simple_plays_dir }}"
+    register: discovered_files
+  
+  - name: "Delete and recreate temp directory for generated CR YAMLs"
+    file:
+      state: "{{item}}"
+      path: "{{tmp_dir}}"
+    with_items:
+      - absent
+      - directory
+    delegate_to: 127.0.0.1
+
+  - name: Generate File CRs from template
+    template: 
+      src: "{{ file_cr_template }}"
+      dest: "{{ tmp_dir }}/{{ item.path | basename }}.yaml"
+    with_items: 
+     - "{{ discovered_files['files'] }}"
+    delegate_to: 127.0.0.1
+      
+  - name: Create File CRs 
+    k8s:
+      state: present
+      src: "{{ tmp_dir }}/{{ item.path | basename }}.yaml"
+    with_items:
+      - "{{ discovered_files['files'] }}"
+    delegate_to: 127.0.0.1

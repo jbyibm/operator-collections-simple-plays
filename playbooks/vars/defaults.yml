@@ -1,0 +1,7 @@
+simple_plays_dir: /tmp/zoscb/simple-plays
+tmp_dir: "{{playbook_dir}}/../tmp/Files"
+
+# implicity assumes using a templates folder under the playbooks directory
+file_cr_template: file.yaml.j2
+file_template: file.j2
+

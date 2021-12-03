@@ -1,0 +1,9 @@
+# Defining a new host (someHost) that is equivalent to the "implicit localhost" host that is created by ansible
+# https://docs.ansible.com/ansible/latest/inventory/implicit_localhost.html
+
+all:
+  hosts:
+    some-host:
+      # This is the zoscb-sandbox VM, ping Ivan or Latrell for access
+      ansible_host: 9.30.118.23
+      ansible_port: 22

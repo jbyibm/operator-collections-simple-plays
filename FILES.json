@@ -1,0 +1,138 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "CHANGELOG.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "3c9e73d3c6cc5898c05c776d83a5fbac52b8cd6ac81feedb398c75cf7cafbcd9",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7dce4e6da843f869e951303a0f55659f8972d53a2ac28d6ee470dc65b38c8ff5",
+   "format": 1
+  },
+  {
+   "name": "collections",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "collections/requirements.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d727bb99e5406e1f718be87b610b9d6e3976b5161b43a6b33a18f05dd12dce98",
+   "format": 1
+  },
+  {
+   "name": "inventories",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "inventories/local.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "08a769007ef2fd089612490a221ab5340d5d206550f0d6bf256687ec7ead500c",
+   "format": 1
+  },
+  {
+   "name": "inventories/zoscb-sandbox.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "253476dd46323ba913ff858592cf21988739a89620fce155d0ebdae70837ed95",
+   "format": 1
+  },
+  {
+   "name": "operator-config.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0de92809e105ca3cdfa63e8b8bd80c1da3d57dc68e739f2e203f5397370e7772",
+   "format": 1
+  },
+  {
+   "name": "playbooks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "playbooks/day2.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bbb4bc430a916ce44a00a776967930011c95928249a5bb8ba8f03e1882c28550",
+   "format": 1
+  },
+  {
+   "name": "playbooks/discover.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2bf41e2675039c93ba7be052207406aa8c2bd4fa8ba9b857cf7560e15e5654b9",
+   "format": 1
+  },
+  {
+   "name": "playbooks/file.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d45cb688d3bcabe90c551382eafc6842213f793bd125981c1c9ee0dc3153346c",
+   "format": 1
+  },
+  {
+   "name": "playbooks/templates",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "playbooks/templates/file.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "df6f2711259a0a8d9ddd6e72c712828c9e6e198c255aa33e44850527df9a94a9",
+   "format": 1
+  },
+  {
+   "name": "playbooks/templates/file.yaml.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "698bdd64f8afae85338718cf02342c97a35e6cb2a5eef73323f1d856963f3b38",
+   "format": 1
+  },
+  {
+   "name": "playbooks/vars",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "playbooks/vars/defaults.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "73ba0c03c644934f9b4ee54a93ec15ff78660e8717f56ac9b46c5e904b13e237",
+   "format": 1
+  },
+  {
+   "name": "playbooks/vars/operator-provided.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "008239deba935444212d3471b71d1761dbe3c747b2ea09f03c18a9eed3785424",
+   "format": 1
+  }
+ ],
+ "format": 1
+}

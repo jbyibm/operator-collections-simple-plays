@@ -1,0 +1,8 @@
+# Defining a new host (some-host) that is equivalent to the "implicit localhost" host that is created by ansible
+# https://docs.ansible.com/ansible/latest/inventory/implicit_localhost.html
+
+all:
+  hosts:
+    some-host:
+      ansible_connection: local
+      ansible_python_interpreter: "{{ ansible_playbook_python }}"

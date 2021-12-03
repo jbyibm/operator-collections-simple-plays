@@ -1,0 +1,3 @@
+collections:
+  - name: operator_sdk.util
+    version: "0.1.0"

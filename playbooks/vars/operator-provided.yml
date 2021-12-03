@@ -1,0 +1,13 @@
+# The variables set in this file are expected to be provided by the ansible-suboperator image following the spec:
+# https://github.ibm.com/operator-collections/operator-collections/blob/master/spec.md#provided-variables
+
+# NOTE: for local usage and development, you will likely need to override these to the latest values for the operatorcollection CR in the cluster
+
+# TODO: Gather these variables from the cluster so that local running doesn't require manual overrides here
+
+k8s_managed: true
+k8s_cr_kind: File
+k8s_cr_version: simple-plays.operator-collections-nazare-7011.zoscb.ibm.com/v1minor0patch3
+ansible_operator_meta:
+  namespace: ivan-dev
+  name: k8s-file

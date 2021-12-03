@@ -1,0 +1,43 @@
+domain: operator-collections
+name: simple-plays
+version: 1.1.1
+inventoryName: some-host
+displayName: Simple Plays
+description: >-
+  # Simple Plays
+
+  The `simple-plays` collection contains some example inventory configurations and simple playbooks that may be run standalone or via Kubernetes.
+resources:
+  - kind: DiscoverFiles
+    description: Discover existing Files
+    playbook: playbooks/discover.yml
+    vars:
+      - name: notused
+        displayName: NotUsed
+        description: >-
+          This variable is not used, but needs to be there because of NAZARE-7480
+        type: string
+  - kind: File
+    description: Create a File
+    playbook: playbooks/file.yml
+    finalizer: playbooks/file.yml
+    vars:
+      - name: filepath
+        displayName: File Path
+        description: >-
+          The name of the file to be created under the /tmp/zoscb/simple-plays directory
+        type: string
+  - kind: FileMessage
+    description: Append a message to an existing File instance
+    playbook: playbooks/day2.yml
+    vars:
+      - name: file_cr_name
+        displayName: File
+        description: >-
+          An existing File instance which will have the specified message appended
+        kindReference: File
+        type: string
+      - name: msg
+        displayName: Message
+        description: The message that you want to append to the File instance
+        type: string

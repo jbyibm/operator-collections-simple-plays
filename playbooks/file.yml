@@ -1,0 +1,35 @@
+---
+- name: Create or delete a simple File instance
+  hosts: some-host
+  gather_facts: false
+
+  vars:
+    file_action: "{{ k8s_cr_event | default('create') }}"
+  vars_prompt:
+    - name: filepath
+      prompt: "Name for the file created under the {{ simple_plays_dir }} directory?"
+      private: no
+  vars_files:
+    - vars/defaults.yml
+    - vars/operator-provided.yml
+  
+  tasks:
+  - name: Create the default simple-plays directory
+    file:
+      state: directory
+      path: "{{simple_plays_dir}}"
+      mode: '777'
+    when: file_action == "create"
+
+  - name: Create a file instance 
+    template: 
+      src: "{{ file_template }}"
+      dest: "{{ simple_plays_dir }}/{{ filepath }}"
+      mode: '777'
+    when: file_action == "create"
+
+  - name: Delete a file instance
+    file:
+      state: absent
+      path: "{{ simple_plays_dir }}/{{ filepath }}"
+    when: file_action == "delete"

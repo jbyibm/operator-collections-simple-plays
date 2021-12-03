@@ -1,0 +1,41 @@
+---
+- name: Append some information to an existing File instance
+  hosts: some-host
+  gather_facts: true
+
+  vars:
+    k8s_namespace: "{{ ansible_operator_meta.namespace }}"
+  
+  # FIXME causes error described in NAZARE-7491
+  # Current workaround - uncomment this block only for local execution OR set defaults in vars/operator-provided.yml
+  # vars_prompt:
+  #   - name: k8s_namespace
+  #     prompt: "What namespace is the File instance located in?"
+  #     private: no
+  #   - name: file_cr_name
+  #     prompt: "What is the name of the File instance?"
+  #     private: no
+  #   - name: msg
+  #     prompt: "What message would you like to write to the File instance?"
+  #     private: no
+  
+  vars_files:
+    - vars/defaults.yml
+    - vars/operator-provided.yml
+
+  tasks:
+  - name: Get an existing File object
+    k8s_info:
+      api_version: "{{k8s_cr_version}}"
+      kind: File
+      name: "{{file_cr_name}}"
+      namespace: "{{ k8s_namespace }}"
+    register: file_instance
+    delegate_to: 127.0.0.1
+
+  # - name: Print file instance CR info
+  #   debug:
+  #     var: file_instance.resources[0].spec.filepath
+
+  - name: Append to existing file instance
+    shell: 'echo "{{ ansible_date_time.iso8601 }} - {{ msg }}" >> {{ simple_plays_dir }}/{{ file_instance.resources[0].spec.filepath }}'
